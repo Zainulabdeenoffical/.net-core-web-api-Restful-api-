@@ -6,24 +6,24 @@ Welcome to the **TechStore** .NET Core Web API! This project is designed to help
 
 ## 📋 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Getting Started](#getting-started)
+- [About the Project](#-about-the-project)
+- [Features](#-features)
+- [Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+- [Usage](#-usage)
   - [Available Endpoints](#available-endpoints)
   - [API Documentation](#api-documentation)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Technologies Used](#-technologies-used)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
 ## 📖 About the Project
 
-The **TechStore** Web API project is designed to simulate a store backend. It supports the functionality to manage user accounts, products, and orders. You’ll find standard RESTful practices implemented along with an emphasis on clean code and maintainable structure.
+The **TechStore** Web API project is designed to simulate a store backend. It supports functionality to manage user accounts, products, and orders. You’ll find standard RESTful practices implemented along with an emphasis on clean code and maintainable structure.
 
 ### 🌟 Features
 
@@ -47,7 +47,7 @@ The **TechStore** Web API project is designed to simulate a store backend. It su
 
 1. **Clone the repository:**
    ```bash
-    git clone  https://github.com/Zainulabdeenoffical/.net-core-web-api-Restful-api-.git
+   git clone https://github.com/Zainulabdeenoffical/.net-core-web-api-Restful-api-.git
    cd .net-core-web-api-Restful-api-
    ```
 
@@ -80,7 +80,13 @@ The **TechStore** Web API project is designed to simulate a store backend. It su
 | `/api/products`    | POST   | Add a new product         |
 | `/api/orders`      | GET    | Get all orders            |
 
+### API Documentation
 
+To generate API documentation and make it easier to explore the API endpoints, Swagger is integrated into the project. You can learn more about setting up Swagger for ASP.NET Core by following [Microsoft’s tutorial on Web API help pages with Swagger](https://learn.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-8.0).
+
+To access the Swagger UI, open your browser and go to `http://localhost:5000/swagger` after running the API. This will provide a detailed, interactive interface to test the API endpoints.
+
+---
 
 ## 🛠️ Technologies Used
 
