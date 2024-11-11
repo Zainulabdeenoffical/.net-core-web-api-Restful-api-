@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
@@ -18,44 +19,68 @@ namespace WebApplication1.Controllers
             _context = context;
         }
         [HttpGet]
-        public IEnumerable<Catogrey> Get()
+        
+        public async  Task<IActionResult> Get()
         {
-            return _context.catogreys;
+           return Ok ( await _context.catogreys.ToListAsync());
         }
+
+        //public IEnumerable<Catogrey> Get()
+        //{
+        //    return _context.catogreys;
+        //}
 
         // GET api/<dbCatogreyController>/5
         [HttpGet("{id}")]
-        public Catogrey Get(int id)
+        public async Task<IActionResult>  Get(int id)
         {
-            return  _context.catogreys.FirstOrDefault(x=>x.Id==id);
+            return Ok ( await  _context.catogreys.FirstOrDefaultAsync(x=>x.Id==id));
         }
 
         // POST api/<dbCatogreyController>
         [HttpPost]
-        public void Post([FromBody] Catogrey Catogrey)
+        public async  Task <IActionResult> Post([FromBody] Catogrey Catogrey)
         {
-            _context.catogreys.Add(Catogrey);
-            _context.SaveChanges();
+           await     _context.catogreys.AddAsync(Catogrey);
+           await     _context.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status201Created);
         }
 
         // PUT api/<dbCatogreyController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Catogrey catogrey)
+        public async Task <IActionResult> put(int id, [FromBody] Catogrey catogrey)
         {
-            var catogreyfromDb = _context.catogreys.Find(id);
-            _context.catogreys.Update(catogreyfromDb);
-            _context.SaveChanges();
+            var catogreyfromDb = await _context.catogreys.FirstOrDefaultAsync(x=> x.Id==id);
+            if (catogreyfromDb == null)
+            {
+                return NotFound();
 
+            }
+            else
+            {
+                catogreyfromDb.Name = catogrey.Name;
+                catogreyfromDb.displayorder = catogrey.displayorder;
+                _context.catogreys.Update(catogreyfromDb);
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
         }
 
         // DELETE api/<dbCatogreyController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task <IActionResult> Delete(int id)
         {
-            var catogreyfromDb = _context.catogreys.Find(id);
-            _context.catogreys.Remove(catogreyfromDb);
-            _context.SaveChanges();
-
+            var catogreyfromDb = await _context.catogreys.FindAsync(id);
+            if (catogreyfromDb == null)
+            {
+                return NoContent();
+            }
+            else
+            {
+                _context.catogreys.Remove(catogreyfromDb);
+                await _context.SaveChangesAsync();
+                return Ok("Conetnt Deleted");
+            }
         }
     }
 }
