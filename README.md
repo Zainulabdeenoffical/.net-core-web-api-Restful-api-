@@ -118,7 +118,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: M Zain Ul Abideen
 - **GitHub**: [Zainulabdeenoffical](https://github.com/Zainulabdeenoffical)
-- **Email**: zu4425@example.com
+- **Email**: zu4425@gmail.com
 
 ---
 
