@@ -1,6 +1,6 @@
-# 📦 .NET Core Web API - TechStore Project
+# 📦 .NET Core Web API 
 
-Welcome to the **TechStore** .NET Core Web API! This project is designed to help you practice and learn the fundamentals of creating a Web API using .NET Core. It's built for educational purposes and includes essential features like user authentication, data validation, and CRUD operations for managing data.
+ .NET Core Web API! This project is designed to help you practice and learn the fundamentals of creating a Web API using .NET Core. It's built for educational purposes and includes essential features like user authentication, data validation, and CRUD operations for managing data.
 
 ---
 
