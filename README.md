@@ -1,6 +1,6 @@
-# 📦 .NET Core Web API - TechStore Project
+# 📦 .NET Core Web API 
 
-Welcome to the **TechStore** .NET Core Web API! This project is designed to help you practice and learn the fundamentals of creating a Web API using .NET Core. It's built for educational purposes and includes essential features like user authentication, data validation, and CRUD operations for managing data.
+ .NET Core Web API! This project is designed to help you practice and learn the fundamentals of creating a Web API using .NET Core. It's built for educational purposes and includes essential features like user authentication, data validation, and CRUD operations for managing data.
 
 ---
 
@@ -118,7 +118,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: M Zain Ul Abideen
 - **GitHub**: [Zainulabdeenoffical](https://github.com/Zainulabdeenoffical)
-- **Email**: zu4425@example.com
+- **Email**: zu4425@gmail.com
 
 ---
 
