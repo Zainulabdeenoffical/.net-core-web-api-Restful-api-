@@ -12,5 +12,27 @@ namespace WebApplication1.Data
             
         }
         public DbSet<Catogrey> catogreys { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Catogrey>().HasData(
+
+                new Catogrey
+                {
+                    Id = 2,
+                    Name = "Hp",
+                    displayorder = 2
+                },
+                new Catogrey
+                {
+                    Id = 3,
+                    Name = "Apple",
+                    displayorder = 3
+                }
+                );
+
+        }
+
     }
+      
 }
