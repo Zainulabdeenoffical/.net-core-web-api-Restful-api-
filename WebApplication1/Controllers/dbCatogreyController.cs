@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models;
@@ -39,12 +41,29 @@ namespace WebApplication1.Controllers
 
         // POST api/<dbCatogreyController>
         [HttpPost]
-        public async  Task <IActionResult> Post([FromBody] Catogrey Catogrey)
+        //public async  Task <IActionResult> Post([FromBody] Catogrey Catogrey)
+        //{
+        //   await     _context.catogreys.AddAsync(Catogrey);
+        //   await     _context.SaveChangesAsync();
+        //    return StatusCode(StatusCodes.Status201Created);
+        //}
+        // Note Please ucomment it if you want to uplod image on Azure
+        public async  Task<IActionResult> Post([FromForm] Catogrey Catogrey)
         {
-           await     _context.catogreys.AddAsync(Catogrey);
-           await     _context.SaveChangesAsync();
-            return StatusCode(StatusCodes.Status201Created);
+            String ConnetionString = "insert your azure Account Access Connection String";
+            String Container = "enter container thats defined";
+            BlobContainerClient containerClient =  new BlobContainerClient(ConnetionString, Container);
+            // BlobClient blobClient = containerClient.GetBlobClient(Catogrey.catogreyimage.FileName);
+            MemoryStream ms = new MemoryStream();
+            //   await Catogrey.catogreyimage.CopytoAsyn(ms);
+            // await ms.Position = 0;
+            // await BlobClient.uplodtoAysnc(ms);
+           // Catogrey.catogreyimagepath = BlobClient.Uri.AbsoluteUri;
+            await _context.catogreys.AddAsync(Catogrey);
+            await _context.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status201Created); 
         }
+
 
         // PUT api/<dbCatogreyController>/5
         [HttpPut("{id}")]
