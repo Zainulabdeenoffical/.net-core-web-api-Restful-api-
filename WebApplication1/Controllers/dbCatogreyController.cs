@@ -38,31 +38,40 @@ namespace WebApplication1.Controllers
         {
             return Ok ( await  _context.catogreys.FirstOrDefaultAsync(x=>x.Id==id));
         }
+        // Routing Concept 
 
+        [HttpGet("[action]/{id}")]
+        //api/dbCatogrey/Test/5
+        public async Task<IActionResult> Test(int id)
+        {
+            return Ok(await _context.catogreys.FirstOrDefaultAsync(x => x.Id == id));
+        }
         // POST api/<dbCatogreyController>
         [HttpPost]
-        //public async  Task <IActionResult> Post([FromBody] Catogrey Catogrey)
-        //{
-        //   await     _context.catogreys.AddAsync(Catogrey);
-        //   await     _context.SaveChangesAsync();
-        //    return StatusCode(StatusCodes.Status201Created);
-        //}
-        // Note Please ucomment it if you want to uplod image on Azure
-        public async  Task<IActionResult> Post([FromForm] Catogrey Catogrey)
+        public async Task<IActionResult> Post([FromBody] Catogrey Catogrey)
         {
-            String ConnetionString = "insert your azure Account Access Connection String";
-            String Container = "enter container thats defined";
-            BlobContainerClient containerClient =  new BlobContainerClient(ConnetionString, Container);
-            // BlobClient blobClient = containerClient.GetBlobClient(Catogrey.catogreyimage.FileName);
-            MemoryStream ms = new MemoryStream();
-            //   await Catogrey.catogreyimage.CopytoAsyn(ms);
-            // await ms.Position = 0;
-            // await BlobClient.uplodtoAysnc(ms);
-           // Catogrey.catogreyimagepath = BlobClient.Uri.AbsoluteUri;
             await _context.catogreys.AddAsync(Catogrey);
             await _context.SaveChangesAsync();
-            return StatusCode(StatusCodes.Status201Created); 
+            return StatusCode(StatusCodes.Status201Created);
         }
+
+
+        // Note Please ucomment it if you want to uplod image on Azure
+        //public async  Task<IActionResult> Post([FromForm] Catogrey Catogrey)
+        //{
+        //String ConnetionString = "insert your azure Account Access Connection String";
+        // String Container = "enter container thats defined";
+        // BlobContainerClient containerClient =  new BlobContainerClient(ConnetionString, Container);
+        // BlobClient blobClient = containerClient.GetBlobClient(Catogrey.catogreyimage.FileName);
+        //MemoryStream ms = new MemoryStream();
+        //   await Catogrey.catogreyimage.CopytoAsyn(ms);
+        // await ms.Position = 0;
+        // await BlobClient.uplodtoAysnc(ms);
+        // Catogrey.catogreyimagepath = BlobClient.Uri.AbsoluteUri;
+        //    await _context.catogreys.AddAsync(Catogrey);
+        //    await _context.SaveChangesAsync();
+        //    return StatusCode(StatusCodes.Status201Created); 
+        //}
 
 
         // PUT api/<dbCatogreyController>/5

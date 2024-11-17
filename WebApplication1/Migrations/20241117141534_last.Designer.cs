@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Data;
 
@@ -11,9 +12,11 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117141534_last")]
+    partial class last
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,14 +51,14 @@ namespace WebApplication1.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 11, 17, 19, 59, 53, 275, DateTimeKind.Local).AddTicks(5660),
+                            CreatedDate = new DateTime(2024, 11, 17, 19, 15, 33, 23, DateTimeKind.Local).AddTicks(3374),
                             Name = "Hp",
                             displayorder = 2
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 11, 17, 19, 59, 53, 275, DateTimeKind.Local).AddTicks(5673),
+                            CreatedDate = new DateTime(2024, 11, 17, 19, 15, 33, 23, DateTimeKind.Local).AddTicks(3384),
                             Name = "Apple",
                             displayorder = 3
                         });
