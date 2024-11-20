@@ -12,26 +12,30 @@ namespace WebApplication1.Data
             
         }
         public DbSet<Catogrey> catogreys { get; set; }
+        public DbSet<book> Books { get; set; }
+        public DbSet<bookCover> BookCOvers { get; set; }
+        public DbSet<bookWriters> BookWriters { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Catogrey>().HasData(
 
-                new Catogrey
-                {
-                    Id = 2,
-                    Name = "Hp",
-                    displayorder = 2
-                },
-                new Catogrey
-                {
-                    Id = 3,
-                    Name = "Apple",
-                    displayorder = 3
-                }
-                );
+    //    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //    {
+    //        modelBuilder.Entity<Catogrey>().HasData(
 
-        }
+    //            new Catogrey
+    //            {
+    //                Id = 2,
+    //                Name = "Hp",
+    //                displayorder = 2
+    //            },
+    //            new Catogrey
+    //            {
+    //                Id = 3,
+    //                Name = "Apple",
+    //                displayorder = 3
+    //            }
+    //            );
+
+    //    }
 
     }
       
