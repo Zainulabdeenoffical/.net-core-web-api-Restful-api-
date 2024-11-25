@@ -26,8 +26,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public async Task <IActionResult> GetWriters()
+        public async Task <IActionResult> GetWriters(int? pageNumber, int? pageSize)
         {
+            int currentpageNumber = pageNumber ?? 0;
+            int currentpageSize = pageSize ?? 5;
             var writers = await (from writer in _Context.BookWriters
                                 select new
             {
@@ -35,7 +37,7 @@ namespace WebApplication1.Controllers
                 Name = writer.Name,
             }).ToListAsync();
 
-            return Ok (writers);
+            return Ok (writers.Skip((currentpageNumber - 1) * currentpageSize).Take(currentpageSize));
 
             
         }

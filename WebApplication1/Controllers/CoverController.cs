@@ -25,8 +25,10 @@ namespace WebApplication1.Controllers
             return StatusCode(StatusCodes.Status201Created);
         }
         [HttpGet]
-        public async Task<IActionResult> GetCovers()
+        public async Task<IActionResult> GetCovers(int? pageNumber,int? pageSize)
         {
+            int currentpageNumber = pageNumber ?? 0;
+            int currentpageSize = pageSize ?? 5;
             var covers = await (from cover in _Context.BookCOvers
                                  select new
                                  {
@@ -35,7 +37,7 @@ namespace WebApplication1.Controllers
                                      writerId = cover.bookWriterID,
                                  }).ToListAsync();
 
-            return Ok(covers);
+            return Ok(covers.Skip((currentpageNumber - 1) * currentpageSize).Take(currentpageSize));
 
 
         }

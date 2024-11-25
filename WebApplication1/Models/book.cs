@@ -9,6 +9,8 @@
         public DateTime  CreatedDate { get; set; }
          public String  ISBNNumber { get; set; }
 
+        public bool Trending { get; set; }
+
         public int  BookCoverID {  get; set; }
 
         public bookCover bookCover { get; set; }
